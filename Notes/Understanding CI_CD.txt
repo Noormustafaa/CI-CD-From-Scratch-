@@ -1,0 +1,236 @@
+# Understanding CI/CD with an E-Commerce Application Example
+
+## What is CI/CD?
+
+CI/CD stands for:
+
+* **CI (Continuous Integration)**
+* **CD (Continuous Delivery / Continuous Deployment)**
+
+To understand CI/CD, let's take the example of an e-commerce application.
+
+An e-commerce application is not built in a single day. It evolves over time as developers continuously add new features, fix bugs, improve performance, and scale the system according to business requirements.
+
+Whenever a new feature is required, developers write new code, merge it with the existing codebase, test it, and finally deploy it. These changes continue throughout the lifetime of the application.
+
+In the Software Development Life Cycle (SDLC), CI/CD helps automate many of these activities.
+
+---
+
+# How Software Development Usually Works
+
+## Step 1: Development
+
+A developer first implements a new feature or bug fix.
+
+In most organizations, there is a **main branch** (often called `main` or `master`) that contains the stable version of the application.
+
+Each developer works on their own feature branch and makes changes independently.
+
+After completing the feature:
+
+* The code is committed.
+* The code is pushed to the remote repository.
+* A Pull Request (PR) or Merge Request (MR) is created.
+* The changes are reviewed and merged into the main branch.
+
+This process is commonly managed using version control systems such as Git.
+
+---
+
+## Step 2: Build
+
+After the code is merged, the application is built.
+
+The build process may include:
+
+* Downloading dependencies
+* Compiling source code
+* Packaging the application
+* Creating artifacts such as:
+
+  * APK files (Android)
+  * JAR files (Java)
+  * Docker images
+  * Executable files
+
+---
+
+## Step 3: Testing
+
+Once the application is built, different types of testing are performed, such as:
+
+* Unit Testing
+* Integration Testing
+* Functional Testing
+
+These tests ensure that the newly added code does not break existing functionality.
+
+---
+
+## Step 4: Release and Deployment
+
+After successful testing, the application is prepared for release.
+
+An important part of the release process is **deployment**.
+
+### What is Deployment?
+
+Deployment means making an application available in a specific environment where it can be accessed and used.
+
+Most organizations use three environments:
+
+### 1. Development Environment (Dev)
+
+Used by developers for development and internal testing.
+
+### 2. Staging Environment
+
+A pre-production environment that closely resembles the production environment.
+
+Before releasing software to customers, organizations usually deploy it to staging for:
+
+* Final testing
+* Client demonstrations
+* User acceptance testing
+
+### 3. Production Environment
+
+This is the live environment used by actual customers and end users.
+
+Only thoroughly tested applications are deployed to production.
+
+---
+
+# Testing After Deployment
+
+Some tests are performed only after deployment.
+
+Examples include:
+
+* End-to-End (E2E) Testing
+* Smoke Testing
+* Security Testing
+* Alpha Testing
+* Beta Testing
+
+These tests verify that the application behaves correctly in a real deployment environment.
+
+---
+
+# Problems Before CI/CD
+
+Before CI/CD practices became common, all of these activities were performed manually.
+
+For every code change, teams had to:
+
+* Build the application manually
+* Run tests manually
+* Deploy manually
+* Verify deployments manually
+
+This created several problems:
+
+* Human errors were common.
+* Releases took a long time.
+* Testing was inconsistent.
+* Deployments were risky.
+* Developers spent too much time on repetitive tasks.
+
+As applications grew larger, this approach became difficult to manage.
+
+---
+
+# The Solution: Automation
+
+To solve these problems, organizations started automating the entire process.
+
+Using automation tools and configuration files (often YAML files), teams can automatically:
+
+* Build applications
+* Run tests
+* Perform quality checks
+* Deploy applications
+
+This automated workflow is known as **CI/CD**.
+
+---
+
+# What is Continuous Integration (CI)?
+
+Continuous Integration focuses on integrating code changes frequently.
+
+Whenever a developer pushes code:
+
+1. The code is merged into the shared repository.
+2. The application is automatically built.
+3. Automated tests are executed.
+4. Developers receive immediate feedback if something fails.
+
+The goal of CI is to detect issues early and keep the main branch stable.
+
+---
+
+# What is Continuous Delivery (CD)?
+
+Continuous Delivery starts where Continuous Integration ends.
+
+After the application successfully passes all CI stages:
+
+* The application is automatically prepared for release.
+* It is usually deployed to a staging environment.
+* A manual approval is required before deploying to production.
+
+In Continuous Delivery, production deployment is still a human decision.
+
+---
+
+# What is Continuous Deployment?
+
+Continuous Deployment goes one step further.
+
+After all automated tests pass:
+
+* The application is automatically deployed to production.
+* No manual approval is required.
+
+Every successful code change can potentially become available to end users immediately.
+
+---
+
+# Difference Between Continuous Delivery and Continuous Deployment
+
+### Continuous Delivery
+
+* Deployment to staging is automated.
+* Production deployment requires manual approval.
+
+### Continuous Deployment
+
+* Deployment to staging is automated.
+* Deployment to production is also automated.
+* No human approval is required.
+
+---
+
+# Simple Summary
+
+CI/CD is the practice of automating the software development and release process.
+
+### Continuous Integration (CI)
+
+* Code Integration
+* Build Automation
+* Automated Testing
+
+### Continuous Delivery (CD)
+
+* Automatic preparation for release
+* Manual approval before production deployment
+
+### Continuous Deployment
+
+* Fully automated deployment to production
+* No manual intervention required
+
+The main goal of CI/CD is to make software delivery faster, safer, more reliable, and less prone to human error.
