@@ -1,0 +1,111 @@
+What Is Docker Hub , Docker Desktop And What is Base(Parent)Image?
+
+-->Let's Discuss First That what is The Base(Parent) image?
+It is a Starting To built a Docker image.Or Starting point for building a Docker Image.
+
+In Docker, a Base Image is the starting point or the foundation for your container!
+
+Base image aik bana-banaya, khaali software ka dabba (Operating System ya Language Setup) hai, jise aap shuruat ke liye uthate ho. Is dabbe ke upar aap apni files, dependencies aur code ki mazeed layers charhate hain.**
+ab yeh saara kuch pack ho jata hai toh aap ki apni Custom Image ban jati hai, jise run karne par Container tayar hota hai aur aap ka software har jagah bina nakhre ke chal parta hai!
+
+The original image on which another Docker image is built.
+
+Think of it like this:
+
+Real-Life Example 🏠
+
+Imagine you want to build a house.
+
+First, you need a foundation (base).
+Then you build walls, rooms, paint, furniture, etc.
+
+
+Here:
+
+Foundation = Base Image
+Your custom changes = New Docker Image
+
+
+Docker Example
+
+Suppose you want to create a Java application image.
+
+You start with a Java image:
+
+FROM openjdk:21
+
+
+openjdk:21
+
+is the Base (Parent) Image.
+
+Then you add your application:
+
+FROM openjdk:21
+
+COPY MyApp.jar app.jar
+
+CMD ["java", "-jar", "app.jar"]
+
+
+Now:
+
+Base Image → openjdk:21
+Child Image → Your custom Java application image
+
+
+
+Another Example
+
+If you want Python:
+
+FROM python:3.12
+
+Docker first downloads the Python image and then adds your code on top of it.
+
+So:
+
+python:3.12
+       ↓
+Add your files
+       ↓
+New Docker Image
+
+
+--> Now Let's Discuss That What is Docker Hub ?
+It is official cloud based repositrary platfom for container images .
+provide pre built images 
+Developers can push and pull images .
+
+Means we can store our images or we can download or we can push our own images or we can pull(download) as well!
+
+
+example like in GitHub we push and pull our repository in the same way dockerhub.
+
+if you want to download(pull) any base image you can download it from the Dockerhub website ! while searching it 
+Like node bas image or for java or python or ubantu etc.
+
+So Dockerhub is basically a cloud platform where we can pull and push our images (base/Parent)images.
+
+
+
+--What is Docker Desktop ?
+
+It is the GUI-based tool to run Docker easily !
+And it provides much more futures than dockerhub. which provides
+Docker Engine , CLI and Kubernetes Support. 
+it helps in building , running and managing Containers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
