@@ -1,0 +1,34 @@
+# Introduction to Docker
+
+**Note:** Every Computer Science student should have a basic understanding of Docker. Although Docker is widely used by DevOps Engineers, it is beneficial for developers, testers, and system administrators as well.
+
+Docker is an independent technology and is not tied to any specific programming language, framework, or platform. Whether you are working with PHP, Laravel, Java, Python, Node.js, or any other technology, Docker can be used with all of them.
+
+Docker helps developers package an application together with all of its dependencies, libraries, and configurations into an isolated environment. This isolated environment is known as a **Container**. Containers ensure that applications run consistently across different systems.
+
+## Definition
+
+**Docker is a Containerization Platform.**
+
+It allows developers to build, package, distribute, and run applications inside lightweight and portable containers.
+
+## Problem Without Docker
+
+A common issue in software development is:
+
+**"It works on my machine, but not on yours."**
+
+Developers often encounter situations where an application runs perfectly on their own system but fails to run on another developer's machine or on a production server. This usually happens because of differences in operating systems, software versions, libraries, or configurations.
+
+Docker solves this problem by packaging the application and all of its dependencies into a container, ensuring that it behaves the same way in every environment.
+
+## Docker and Microservices
+
+Docker is widely used in Microservices Architecture. In a microservices-based application, each service can be packaged and deployed in its own container. This provides:
+
+* Better isolation between services
+* Easier deployment and scaling
+* Improved resource utilization
+* Simplified maintenance and updates
+
+As a result, Docker has become one of the most important tools for building and deploying modern cloud-native applications.
