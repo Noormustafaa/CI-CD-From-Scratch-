@@ -1,0 +1,63 @@
+How To Pull and  Run Node.js image in Docker!
+
+
+->The PPTs for this topic have already been made in the 'Notes' folder.
+
+
+
+
+Step 1: Opening Docker Desktop and Understanding Optional Settings
+When you click to run an image (like `node:latest`) inside Docker Desktop, the *Optional settings* screen appears first. This is not an error; Docker is simply giving you the opportunity to customize your container before launching it. Here, you can assign a custom container name, map network ports, or link your computer's folders to the container (Volumes). If you do not need any specific configurations, you can leave these fields blank and directly click the blue **Run** button, and Docker will automatically generate a random name for your container.
+
+Step 2: Understanding why a Container shows "Exited (0)"**
+When you run a raw, official `node` image without providing it a specific script or continuous application to execute, you will notice its status in Docker Desktop immediately switches to **`Exited (0) (1 second ago)`**. This happens because a Docker container is designed to stay alive only as long as the main process inside it is actively running. Since the base Node image has no background tasks or instructions to process upon launching, it successfully verifies its environment and shuts down right away (where `0` means it closed with zero errors).
+
+Step 3: Running the Container in Interactive Mode (`-it`) via Terminal**
+To keep the container active and interact with it, you open your Windows PowerShell and execute the command: `docker run -it node /bin/bash`. The `-it` flag stands for interactive mode, which connects your terminal's input and output directly to the container, while `/bin/bash` instructs Docker to open a Linux bash terminal inside it. The moment you press enter, your standard Windows prompt changes to something like `root@eba11bdd69bb:/#`. This indicates that you have successfully left Windows and are now working directly inside the container's isolated Linux filesystem as the administrator (root user).
+
+Step 4: Checking the Node Version Inside the Container**
+Once you are inside the container's Linux terminal (`root@...:/#`), you can type `node -v` and press Enter. This command queries the internal environment and returns the exact version of Node.js installed inside that specific image (such as `v26.3.0`). This serves as proof that your isolated container environment is fully operational and entirely independent of your host Windows computer, regardless of whether you have Node installed on Windows or not.
+
+Step 5: Opening the Node Environment and Running JavaScript**
+Typing `console.log("HELLO")` directly into the bash terminal results in a syntax error because the underlying Linux operating system does not natively understand JavaScript. To execute JS code, you must first type `node` and press Enter, which changes your prompt to a greater-than symbol (**`>`**). This symbol represents the active Node.js REPL environment. Now, you can type any JavaScript command, such as `console.log("HELLO")`, and it will execute perfectly. When you want to exit the Node environment back to Linux, type `.exit`, and when you want to leave the container completely to return to Windows PowerShell, type `exit`.
+
+
+---In Urdu..
+
+Step 1: Docker Desktop open karna aur Optional Settings dekhna**
+Jab aap Docker Desktop mai kisi image (jaise `node:latest`) ko run karne ke liye click karte hain, to sabse pehle aapke samne ek **Optional settings** ki screen aati hai. Yeh koi error nahi hai, balki Docker aapko mauka deta hai ki aap apne container ka custom name rakh sakein, ports map kar sakein, ya computer ke folders ko container se link (Volumes) kar sakein. Agar aapko koi specific configuration nahi karni, to aap ise khali chhod kar seedha blue **Run** button par click kar sakte hain, jisse Docker khud hi ek random name generate kar leta hai.
+
+**Step 2: Container ka Run hokar Exited (0) hona samajhna**
+Jab aap raw `node` image ko bina kisi script ya code ke run karte hain, to Docker Desktop mai uska status **`Exited (0) (1 second ago)`** dikhai deta hai. Iska matlab yeh hai ki container successfully chala aur band ho gaya (0 ka matlab no errors). Docker containers tabhi tak zinda rehte hain jab tak unke andar koi kaam ya process chal raha ho. Chunke Node image ko aapne koi command nahi di thi, isliye wo apna environment check karke foran band ho jata hai.
+
+**Step 3: Terminal se Container ko Interactive Mode (`-it`) mai chalana**
+Container ko zinda rakhne aur uske andar kaam karne ke liye hum Windows PowerShell open karte hain aur yeh command chalate hain: `docker run -it node /bin/bash`. Yahan `-it` ka matlab hai interactive mode, jo terminal ko container se jor kar rakhta hai, aur `/bin/bash` aapko container ke andar ka Linux terminal de deta hai. Yeh command run karte hi aapka regular Windows prompt badal kar `root@eba11bdd69bb:/#` jaisa ho jata hai, jiska matlab hai ab aap Windows se nikal kar directly container ke isolated Linux environment ke andar administrator (root) ban chuke hain.
+
+**Step 4: Container ke andar Node version check karna**
+Ek baar jab aap container ke Linux terminal (`root@...:/#`) mai enter ho jate hain, to aap wahan `node -v` likh kar enter press karte hain. Yeh command aapko container ke andar installed Node.js ka exact version batati hai (jaise `v26.3.0`). Yeh is baat ka saboot hai ki aapka isolated environment perfectly kaam kar raha hai, bhale hi aapke real Windows computer mai Node installed ho ya na ho.
+
+**Step 5: Node Environment open karna aur JavaScript execute karna**
+Bash terminal mai directly `console.log("HELLO")` likhne se syntax error aata hai kyunki Linux terminal JavaScript nahi samajhta. JavaScript chalane ke liye aapko pehle terminal mai `node` likh kar enter karna hota hai, jisse aapka prompt badal kar ek greater-than sign (**`>`**) ban jata hai—yeh Node.js ka REPL environment hai. Ab aap yahan apna koi bhi JavaScript code jaise `console.log("HELLO")` run kar sakte hain aur wo perfectly execute hoga. Jab aapko is Node environment se bahar aana ho to aap `.exit` likhte hain, aur jab poore container se bahar Windows par aana ho to aap `exit` command chalate hain.
+
+
+Yahan aapka pura Docker process step-by-step paragraphs style mein diya gaya hai, jise aap aasaani se samajh aur follow kar sakte hain:
+
+**Step 1: Docker Desktop open karna aur Optional Settings dekhna**
+Jab aap Docker Desktop mai kisi image (jaise `node:latest`) ko run karne ke liye click karte hain, to sabse pehle aapke samne ek **Optional settings** ki screen aati hai. Yeh koi error nahi hai, balki Docker aapko mauka deta hai ki aap apne container ka custom name rakh sakein, ports map kar sakein, ya computer ke folders ko container se link (Volumes) kar sakein. Agar aapko koi specific configuration nahi karni, to aap ise khali chhod kar seedha blue **Run** button par click kar sakte hain, jisse Docker khud hi ek random name generate kar leta hai.
+
+**Step 2: Container ka Run hokar Exited (0) hona samajhna**
+Jab aap raw `node` image ko bina kisi script ya code ke run karte hain, to Docker Desktop mai uska status **`Exited (0) (1 second ago)`** dikhai deta hai. Iska matlab yeh hai ki container successfully chala aur band ho gaya (0 ka matlab no errors). Docker containers tabhi tak zinda rehte hain jab tak unke andar koi kaam ya process chal raha ho. Chunke Node image ko aapne koi command nahi di thi, isliye wo apna environment check karke foran band ho jata hai.
+
+**Step 3: Terminal se Container ko Interactive Mode (`-it`) mai chalana**
+Container ko zinda rakhne aur uske andar kaam karne ke liye hum Windows PowerShell open karte hain aur yeh command chalate hain: `docker run -it node /bin/bash`. Yahan `-it` ka matlab hai interactive mode, jo terminal ko container se jor kar rakhta hai, aur `/bin/bash` aapko container ke andar ka Linux terminal de deta hai. Yeh command run karte hi aapka regular Windows prompt badal kar `root@eba11bdd69bb:/#` jaisa ho jata hai, jiska matlab hai ab aap Windows se nikal kar directly container ke isolated Linux environment ke andar administrator (root) ban chuke hain.
+
+**Step 4: Container ke andar Node version check karna**
+Ek baar jab aap container ke Linux terminal (`root@...:/#`) mai enter ho jate hain, to aap wahan `node -v` likh kar enter press karte hain. Yeh command aapko container ke andar installed Node.js ka exact version batati hai (jaise `v26.3.0`). Yeh is baat ka saboot hai ki aapka isolated environment perfectly kaam kar raha hai, bhale hi aapke real Windows computer mai Node installed ho ya na ho.
+
+**Step 5: Node Environment open karna aur JavaScript execute karna**
+Bash terminal mai directly `console.log("HELLO")` likhne se syntax error aata hai kyunki Linux terminal JavaScript nahi samajhta. JavaScript chalane ke liye aapko pehle terminal mai `node` likh kar enter karna hota hai, jisse aapka prompt badal kar ek greater-than sign (**`>`**) ban jata hai—yeh Node.js ka REPL environment hai. Ab aap yahan apna koi bhi JavaScript code jaise `console.log("HELLO")` run kar sakte hain aur wo perfectly execute hoga. Jab aapko is Node environment se bahar aana ho to aap `.exit` likhte hain, aur jab poore container se bahar Windows par aana ho to aap `exit` command chalate hain.
+
+
+
+
+
