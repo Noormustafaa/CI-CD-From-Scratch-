@@ -1,0 +1,48 @@
+In the previous lecture, we learned how to pull and run an image. But that image was our parent (base) image. It was a built-in image, which means a pre-defined image. What did we do? We just downloaded that image and then we ran it.
+
+But still, we haven't created any project image. So in this lecture, we will create an image of our project using a Dockerfile!
+
+We will learn how we can create a Dockerfile in our project. Then hum us Dockerfile ka use karte hue jab build banate hain, to wo image ban jati hai. Aur wo image hamein kaise Docker Desktop par show hogi, so in saare important topics ko hum yahan par cover karne wale hain.
+
+
+so if i have to create an image then i need to create a docker file in our project , then using 
+that docker file we will create a build and then that build becomes our image of our docker file .
+
+so for all these we need on project . any technologies based.
+
+Step1: Create a Folder on desktop named  pythonApp .
+ 
+step2: on that working directory open it and right click and then open terminal .
+       we are opening terminal inside it because if we have to run code then we can directly run it !
+
+-->
+Step 1: Project Setup in VS Code
+First, create a new folder on your computer named "python-docker-app" and open this folder inside VS Code. Next, create a new file named "app.py" and add a basic line of code like print("Hello from inside the Docker container!") so you have something to execute. In the same folder, create a second file named "requirements.txt" and leave it completely blank for now; this is a standard best practice that tells Docker where to look for future Python libraries you might want to install.  
+
+
+-->
+Step 2: Create the Dockerfile
+Create a new file in your project root folder and name it exactly "Dockerfile" with a capital D and absolutely no file extension like .txt at the end. Inside this file, paste the following configuration lines to set up your container environment:
+
+
+Dockerfile
+FROM python:3.10-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["python", "app.py"]
+
+Once you have pasted this code, make sure to save the file immediately by pressing "Ctrl + S" (or "Cmd + S" on Mac) so your changes are registered before moving to the next step.
+
+
+Step 3: Build the Docker Image
+Before running any commands, make sure your Docker Desktop application is open and running in the background on your computer. Inside VS Code, open the built-in terminal window by pressing "Ctrl + ~" (the tilde key next to the number 1) or by navigating to Terminal > New Terminal in the top menu bar. In the terminal prompt, type the command docker build -t my-python-app . and press Enter, making sure to include the space and the dot at the very end of the command which tells Docker to look for the Dockerfile in your current directory. Wait a few moments for Docker to download the official Python base image and finish building your custom project image.
+
+
+Step 4: Run the Docker Container
+Once the terminal shows a success message indicating the image build is complete, you are ready to test your containerized application. In the exact same VS Code terminal window, type the execution command docker run my-python-app and press Enter. The container will instantly boot up, run your "app.py" script, display your print statement text directly inside the terminal window, and then automatically shut down smoothly.
+
+
+
+
