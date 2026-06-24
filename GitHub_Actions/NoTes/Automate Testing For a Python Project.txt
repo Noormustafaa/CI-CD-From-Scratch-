@@ -1,0 +1,146 @@
+Automate Testing For a Python Project.
+
+Step1.
+Create a new Repo. ex name testgithubaction
+
+step2.
+No need to select readme file or anything
+
+step3.
+just click on the Creating Repository 
+
+step4.
+open vs Code 
+and click on 3 dots and select Terminal 
+and then click on > arrow and go to the Command promt 
+
+step5.
+Create A README.md file in vs Code
+
+step5. 
+in Cmd Write git init
+ and then hit enter the it will show you initialize empty git repository .
+
+and it will create a .git file in that folder
+
+step6. 
+in cmd 
+once you done that then write git  add . (for Adding the README.md File)
+
+when you keep cursor on that README.md file on the vs code it will show you that index file is added.
+
+
+step7.
+Commit it . write this command .
+
+git commit -m "first commit"
+
+
+
+step8.
+
+create A branch name main.
+git branch -M main
+
+
+step 9.
+git remote add origin https://github.com/Noormustafaa/testgithubaction.git.
+
+step10.
+git push -u origin main
+
+so you will se that README.md File is added .
+so this was the basic step . 
+
+now Step11. 
+in vs Code Create a File Named 
+requirements.txt
+write there libraries 
+pandas 
+pytest Note Pytest is Required here because we are doing the unit testing 
+
+step12 
+create two folder inside that folder src and tests
+
+step 13.
+inside a src folder Create the __init__.py file and math_operations.py file 
+and inside math_operations.py write 
+def add(a, b):
+    return a + b
+
+
+def sub(a, b):
+    return a - b
+
+
+
+step14.
+
+create file in test folder __init.py and test_operations.py file
+in test folder write this
+from src.math_operations import add,sub
+
+def test_add():
+    assert add(2, 3) == 5
+    assert add(-1, 1) == 0
+
+
+def test_sub():
+    assert sub(5, 3) == 2
+    assert sub(4, 3) == 1
+    assert sub(3, 3) == 0
+    assert sub(2, 3) == -1
+
+
+
+
+then go to the vs terminal and write git add .   for add
+then write git commit -m "Unit test case updated"
+
+then write git push origin main .
+
+so push is done you can see in GitHub desktop.
+
+
+Now Let's Write Automate entire usecases unit usecases. by the Git hub Actions 
+
+So In GitHub click on Actions.
+
+and when you scroll down you can see there are already so many prebuilt GitHub actions which are already
+available there . created and test for python applications.
+
+
+So lets Consider one of them.
+
+Click on <>Code in GitHub action
+
+if you see in actions and click on python applications create andtest python application \
+then click on configure note that it automatically create folders like .GitHub/workflows/python-app.yml  File
+
+
+--Go to the Vs code folder and Create another folder name .GitHub inside it create workflows folder and 
+inside workflows create one file name unittest.yml 
+
+and install extension and sign in with GitHub 
+
+and then go to the unittest.yml file and define all workflow 
+
+and write there some code in key values pair 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
