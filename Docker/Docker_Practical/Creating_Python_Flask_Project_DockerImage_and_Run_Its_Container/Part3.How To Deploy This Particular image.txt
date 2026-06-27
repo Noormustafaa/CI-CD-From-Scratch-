@@ -1,0 +1,26 @@
+Part3:
+
+How To Deploy This Particular image in the docker hub Repository once i deploy we can also pull 
+this particular image and we can run this that particular docker image as a container ,
+and we can also access in our local machine 
+
+so to do this 
+step1: Go and login into the docker hub
+step2: in command promt write docker login  // you will login successfully 
+step3: write docker images 
+steo4: How to Rename these images  there are two ways 
+       1st way remove it and create again 
+
+	docker image rm -f iam_docker_image
+	now again build 
+	docker build -t noormustafa12/iam_now_new_image
+        so before assign name you must write first your username 
+
+	it will start pushing .
+
+Step5: when you reload the docker hub you will be able to see this docker image 
+
+step6: click on that docker image then click on tag 
+	docker pull noormustafa12/iam_now_new_image:latest
+you will se this command by using this command you can aslso pull this image 
+
