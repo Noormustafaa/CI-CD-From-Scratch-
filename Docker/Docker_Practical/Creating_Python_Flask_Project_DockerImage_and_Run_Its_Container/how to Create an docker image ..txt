@@ -1,0 +1,56 @@
+how to Create an docker image .
+Of Basic Flask Application 
+
+Step 1: create a file with name app.py
+ 
+## flask app for hello world
+
+from flask import Flask
+import os
+app=Flask(__name__)
+
+@app.route('/',methods=['GET'])
+def home():
+    return "Hello World"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+and run it ! 
+
+Step 2:
+Then Create Another File Name requirements.txt and Write there 
+Flask 
+
+
+Step3: Now let's dockerize This application
+
+Create Dockerfile
+
+and write there some basic commands
+
+FROM python:3.8-alpine
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+CMD python app.py
+
+
+so as soon as we build this file then it will create an docker image 
+So in order to build it commands are very much important
+
+Step4: for build docker image commands are 
+
+docker build -t docker_iamge_name .  So this Command will Create an Docker Image 
+
+Step5 . if you want To See Weather Your Docker Image is Created or Not  Write Command 
+
+docker images
+
+
+
+
+ 
+
+
