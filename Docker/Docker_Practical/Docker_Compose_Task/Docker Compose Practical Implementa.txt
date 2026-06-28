@@ -1,0 +1,90 @@
+Docker Compose Practical Implementaion Steps .
+Ek basic Python web application (Flask use karte hue) banate hain aur usay Docker Compose ke zariye run karte hain
+
+Hum ek simple app banayenge jo visit karne par "Hello World!" dikhaeygi aur Redis database ka use karke count karegi ke page kitni baar visit hua hai.
+
+Is project ke liye humein total 4 files chahiye hongi. Aap ek naya empty folder bana len aur usme ye files create karein:
+
+
+Step 1: Python Application Code (app.py)
+Sab se pehle apne folder mein app.py naam ki file banayein aur usme ye code likhein:
+
+import time
+import redis
+from flask import Flask
+
+app = Flask(__name__)
+# 'redis' yahan host name hai, jo Docker Compose network ke zariye automatic connect hoga
+cache = redis.Redis(host='redis', port=6379)
+
+def get_hit_count():
+    retries = 5
+    while True:
+        try:
+            return cache.incr('hits')
+        except redis.exceptions.ConnectionError as exc:
+            if retries == 0:
+                raise exc
+            retries -= 1
+            time.sleep(0.5)
+
+@app.route('/')
+def hello():
+    count = get_hit_count()
+    return f'Hello World! I have been seen {count} times.\n'
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
+
+
+
+
+Step 2: Dependencies Specify Karein (requirements.txt)
+Ab same folder mein requirements.txt file banayein taake Python ko pata ho kaunse packages install karne hain:
+
+
+
+
+Step 3: Dockerfile Banayein (Dockerfile)
+
+Ab hum batayenge ke is Python app ka Docker image kaise banega. Dockerfile (bina kisi extension ke) naam ki file banayein:
+
+
+Step 4: Docker Compose Configuration (docker-compose.yml)
+Ab aata hai sab se main step. Hum ek docker-compose.yml file banayenge jo hamari Python app aur Redis database dono ko aapas mein joregi:
+
+
+
+
+
+Project chalane ka tareeqa (Commands)
+Ab aapka project ready hai. Apne terminal/command prompt ko is folder ke andar open karein aur ye simple commands run karein:
+
+1: Containers ko start karne ke liye:
+
+write this command 
+ ddocker compose up
+
+
+
+Yani sirf ek command se aapka Python environment aur Redis database dono download, build aur start ho jayenge.
+
+App check karne ke liye:
+Apne browser mein http://localhost:5000 open karein. Aapko "Hello World! I have been seen 1 times" nazar aayega. Jab aap page refresh karenge, to count barhta jayega.
+
+Containers ko rokne ke liye:
+Jab aapka kaam khatam ho jaye, to terminal mein Ctrl + C dabayein ya doosre terminal se ye command run karein:
+
+docker compose down
+
+
+
+
+
+
+
+
+
+
+
