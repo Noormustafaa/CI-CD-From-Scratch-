@@ -1,0 +1,8 @@
+Docker compose !
+Docker Compose Is a tool for defining and running multi-container Docker Applications .
+we create a file named docker compose dot EML file  
+
+Docker Compose is a tool used for defining and running multi-container Docker applications. It uses a single YAML file (typically named docker-compose.yml) to configure your application's services, networks, and volumes. With a single command (docker compose up), you can create and start all the services required for your app on a single host (machine).
+
+
+Docker Swarm is Docker’s native container orchestration tool. It allows you to manage a cluster of Docker engines (called a swarm) as a single virtual system. Docker Swarm turns multiple machines into a coordinated, resilient network, allowing you to deploy, scale, and manage containerized applications across multiple hosts.
