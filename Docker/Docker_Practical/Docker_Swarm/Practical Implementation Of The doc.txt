@@ -1,0 +1,101 @@
+Practical Implementation Of The docker Swarm !
+
+Docker Swarm Ki Practical Implementation (Step-by-Step)
+Hum pichle waale Python aur Redis project ko hi Docker Swarm par chalayenge. Swarm ko test karne ke liye aapko aini taur par alag servers nahi chahiye, aap apni local machine par hi Swarm mode on kar sakte hain. 
+
+Step 1: Docker Swarm Mode ko On Karein
+Sab se pehle apne terminal mein Swarm mode ko activate karein. Yeh aapki machine ko Manager Node bana dega:
+
+Write This Command 
+docker swarm init
+
+
+Note: Is command ko chalane ke baad aapko terminal mein ek docker swarm join --token ... jaisi command nazar aayegi. Agar aapke paas doosre computers hote, to aap un par yeh token run karte taake woh worker nodes ban sakein. Abhi ke liye hum single-node cluster par hi kaam karenge.
+
+
+Step 2: Image ko Registry par Push Karein (Ya Local Image Use Karein)
+Docker Swarm production ke liye hota hai, isliye yeh seedha code build nahi karta (jaise Compose karta hai). Isko pehle se bani hui image chahiye hoti hai.
+
+Kyunki hum local machine par hain, hum apni pichli image ko hi use kar sakte hain. Pehle apne pichle folder mein ja kar image build karlein:
+
+docker build -t my-python-app:latest .
+
+
+Step 3: Swarm Ke Liye Configuration File (docker-compose-swarm.yml)
+Swarm ke liye hum thodi si tabdeeli ke saath ek nayi file banayenge taake Swarm ko batayein ke humein is app ki 3 copies (replicas) chalani hain. Nayi file banayein docker-compose-swarm.yml:
+
+
+version: '3.8'
+
+services:
+  web:
+    image: my-python-app:latest
+    ports:
+      - "5000:5000"
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+
+
+
+
+
+
+(Yahan humne build: . ki jagah image: my-python-app:latest use kiya hai aur deploy ka block add kiya hai).
+
+Step 4: Application ko Swarm par Deploy Karein
+Swarm mein project ko deploy karne ke liye docker compose up nahi, balki docker stack deploy use hota hai.
+
+Apne terminal mein yeh command run karein (my-stack hamare project ka naam hai):
+
+run this command 
+
+docker stack deploy -c docker-compose-swarm.yml my-stack
+
+Step 5: Status Check Karein
+Aapki app background mein chal rhi hogi. Yeh check karne ke liye ke sab sahi chal rha hai ya nahi, yeh commands run karein:
+
+
+Stack ki list dekhne ke liye:
+
+run this command 
+docker stack ls
+
+
+Services aur replicas check karne ke liye:
+
+Bash
+docker stack services my-stack
+
+
+
+Magic Test: High Availability Check Karein!
+Ab aap browser mein dubara http://localhost:5000 par jayein. App bilkul pehle ki tarah chalegi aur Redis count bhi barhayegi, lekin background mein load-balancing ho rhi hogi (traffic teenon containers mein distribute ho rha hoga).
+
+Swarm ka asli faida dekhne ke liye:
+Aap docker ps likh kar kisi ek Python container ki ID nikalen aur usay zardasti delete kar dein:
+
+docker rm -f <container_id>
+
+
+Ab foran dubara docker stack services my-stack check karein. Aap dekhenge ke Swarm ne dekha ke ek container mar gaya hai, usne khud hi (self-healing) ek naya container foran start kar diya taake count dubara 3/3 ho jaye!
+
+Swarm ko band karne ke liye:
+Jab aap practice khatam karlein, to stack ko delete karne aur Swarm mode off karne ke liye yeh commands chalayein:
+
+
+
+
+
+
+
+
+
+
+
