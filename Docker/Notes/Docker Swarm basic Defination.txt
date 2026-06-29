@@ -1,0 +1,9 @@
+Docker Swarm Docker ka apna native container orchestration tool hai.
+
+Aasan alfaaz mein, Docker Compose sirf ek hi machine (computer) par containers ko chalata hai. Lekin agar aapki website par traffic bohat zyada aa jaye aur aapko 5 ya 10 alag-alag servers (nodes) par apni app chalani ho, to aap Docker Swarm ka use karte hain.
+
+Swarm un sabhi servers ko aapas mein jor kar ek "Cluster" (ek bada virtual computer) bana deta hai. Isme do kism ke roles hote hain:
+
+Manager Node: Yeh boss hota hai jo poore cluster ko manage karta hai aur faisla karta hai ke kaunsa container kis server par chalega. 
+
+Worker Node: Yeh sirf manager ke hukum par containers ko run karte hain.
