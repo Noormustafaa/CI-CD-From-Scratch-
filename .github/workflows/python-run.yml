@@ -17,4 +17,4 @@ jobs:
 
       # Yahan humne path change karke seedha hello.py kar diya hai
       - name: Execute Python Script
-        run: python hello1.py
+        run: python Addition.py
