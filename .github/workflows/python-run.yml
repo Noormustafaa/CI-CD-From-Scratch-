@@ -15,5 +15,6 @@ jobs:
         with:
           python-version: '3.10'
 
+      # Yahan humne path change karke seedha hello.py kar diya hai
       - name: Execute Python Script
-        run: python GitHub_Actions/Script.py
+        run: python hello.py

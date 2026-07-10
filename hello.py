@@ -1,0 +1,1 @@
+print("Hello World! Root directory se GitHub Actions.")
