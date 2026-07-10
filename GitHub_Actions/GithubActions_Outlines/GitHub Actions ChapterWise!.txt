@@ -1,0 +1,236 @@
+GitHub Actions ChapterWise!
+
+Chapter 01 – Introduction to GitHub Actions
+What is GitHub Actions?
+Why GitHub Actions?
+CI (Continuous Integration)
+CD (Continuous Deployment)
+Automation Basics
+Real-world Use Cases
+
+
+Chapter 02 – GitHub Actions Workflow
+What is a Workflow?
+Workflow File (.yml)
+Workflow Structure
+Workflow Location (.github/workflows)
+First Workflow
+
+Chapter 03 – Workflow Events (Triggers)
+push
+pull_request
+workflow_dispatch
+schedule
+release
+Multiple Triggers
+
+
+
+
+
+Chapter 04 – Jobs
+What is a Job?
+Multiple Jobs
+Job Dependencies (needs)
+Parallel Jobs
+Sequential Jobs
+
+
+
+
+Chapter 05 – Runners
+What is a Runner?
+GitHub-hosted Runner
+Self-hosted Runner
+Ubuntu Runner
+Windows Runner
+macOS Runner
+
+
+
+
+
+Chapter 06 – Steps
+What is a Step?
+uses
+run
+Running Shell Commands
+Multiple Steps
+
+
+
+
+
+Chapter 07 – Actions
+What is an Action?
+GitHub Marketplace
+Using Pre-built Actions
+Creating Reusable Actions
+Popular Actions
+
+
+
+
+
+Chapter 08 – Variables
+Environment Variables
+Default Variables
+Custom Variables
+Context Variables
+
+
+
+
+Chapter 09 – GitHub Secrets
+What are Secrets?
+Creating Secrets
+Using Secrets
+API Keys
+Tokens
+Best Practice
+
+
+
+
+Chapter 10 – Expressions & Conditions
+Expressions
+if
+success()
+failure()
+always()
+Conditional Execution
+
+
+
+
+
+
+Chapter 11 – Matrix Strategy
+Matrix Builds
+Multiple Python Versions
+Multiple Operating Systems
+Parallel Testing
+
+
+
+
+Chapter 12 – Dependency Caching
+Why Cache?
+Cache Dependencies
+Python (pip) Cache
+Node (npm) Cache
+Speed Optimization
+
+
+
+
+Chapter 13 – Artifacts
+Upload Artifacts
+Download Artifacts
+Sharing Build Files
+Build Outputs
+
+
+
+
+
+Chapter 14 – Python Automation
+Setup Python
+Install Packages
+Run Python Scripts
+Execute Tests
+
+
+
+
+
+
+Chapter 15 – Flask Automation
+Setup Flask
+Install Dependencies
+Run Flask Application
+Flask Testing
+
+
+
+
+
+Chapter 16 – Testing
+Unit Testing
+pytest
+Test Reports
+Automated Testing
+
+
+
+
+Chapter 17 – Deployment
+Deployment Basics
+GitHub Pages
+Render
+Railway
+Azure
+Deployment Automation
+
+
+
+
+Chapter 18 – Docker Integration
+Build Docker Image
+Login to Docker Hub
+Push Docker Image
+Docker Automation
+
+
+
+
+Chapter 19 – Notifications
+Email Notifications
+Slack Notifications
+Discord Notifications
+Status Alerts
+
+
+
+
+
+Chapter 20 – Scheduled Workflows
+Cron Syntax
+Daily Workflows
+Weekly Workflows
+Monthly Workflows
+
+
+
+Chapter 21 – Reusable Workflows
+workflow_call
+Shared Workflows
+Reusing Pipelines
+
+
+Chapter 22 – Composite Actions
+Creating Composite Actions
+Inputs
+Outputs
+Reusable Components
+
+Chapter 23 – CI Pipeline Project
+Build Project
+Lint Code
+Run Tests
+Upload Artifacts
+
+Chapter 24 – CD Pipeline Project
+Automatic Deployment
+Release Pipeline
+Production Deployment
+
+Chapter 25 – Real-World GitHub Actions Projects
+Python Project CI/CD
+Flask Project CI/CD
+Docker CI/CD
+Data Science Automation
+Machine Learning Pipeline
+End-to-End Production Workflow
+
+
